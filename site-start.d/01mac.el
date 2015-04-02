@@ -1,0 +1,5 @@
+(setq mac-pass-control-to-system nil)
+(setq mac-pass-command-to-system nil)
+(setq mac-pass-option-to-system nil)
+(setq mac-allow-anti-aliasing t)
+(setq mac-command-modifier 'meta)
