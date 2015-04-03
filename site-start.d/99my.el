@@ -4,6 +4,7 @@
 (define-key global-map "\M-t" 'my-concat-time-stamp)
 (define-key global-map "\M-f" 'my-forward-to-word)
 (define-key global-map "\C-t" 'my-vz-kill-word)
+(define-key global-map "\C-ca" 'my-align-to-equals)
 
 ;; 個人向けなdefun
 (defun my-concat-time-stamp ()
@@ -49,3 +50,13 @@
                   (delete-char 1))
                 (not (eolp))
                 (= org (my-vz-char-type (following-char)))))))
+
+;; alignの設定
+(defadvice align-regexp (around align-regexp-with-spaces activate)
+  (let ((indent-tabs-mode nil))
+    ad-do-it))
+
+(defun my-align-to-equals (begin end)
+  "Align region to equal signs"
+   (interactive "r")
+   (align-regexp begin end "\\(\\s-*\\)=" 1 1 ))
