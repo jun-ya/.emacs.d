@@ -49,3 +49,6 @@
 
 ;; C-x C-b
 (define-key ctl-x-map "\C-b" 'buffer-menu)
+
+;; 書き換えられたら読みなおす
+(auto-revert-mode)
