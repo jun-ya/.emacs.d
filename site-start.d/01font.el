@@ -1,50 +1,18 @@
-;; for Cocoa-Emacs
-(when (= emacs-major-version 24)
-;;; フォントセットを作る
-  (let* ((fontset-name "myfonts") ; フォントセットの名前
-		 (size 11) ; ASCIIフォントのサイズ [9/10/12/14/15/17/19/20/...]
-		 (asciifont "Menlo") ; ASCIIフォント
-		 (jpfont "Hiragino Maru Gothic ProN") ; 日本語フォント
-		 (font (format "%s-%d:weight=normal:slant=normal" asciifont size))
-		 (fontspec (font-spec :family asciifont))
-		 (jp-fontspec (font-spec :family jpfont))
-		 (fsn (create-fontset-from-ascii-font font nil fontset-name)))
-	(set-fontset-font fsn 'japanese-jisx0213.2004-1 jp-fontspec)
-	(set-fontset-font fsn 'japanese-jisx0213-2 jp-fontspec)
-	(set-fontset-font fsn 'katakana-jisx0201 jp-fontspec) ; 半角カナ
-	(set-fontset-font fsn '(#x0080 . #x024F) fontspec) ; 分音符付きラテン
-	(set-fontset-font fsn '(#x0370 . #x03FF) fontspec) ; ギリシャ文字
-	)
-  ;; デフォルトのフレームパラメータでフォントセットを指定
-  (add-to-list 'default-frame-alist '(font . "fontset-myfonts"))
-  ;; フォントサイズの比を設定
-  (dolist (elt '(("^-apple-hiragino.*" . 1.0)
-				 (".*osaka-bold.*" . 1.0)
-				 (".*osaka-medium.*" . 1.0)
-				 (".*courier-bold-.*-mac-roman" . 1.0)
-				 (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
-				 (".*monaco-bold-.*-mac-roman" . 0.9)))
+;; Mac用フォント設定
+;; http://tcnksm.sakura.ne.jp/blog/2012/04/02/emacs/
 
-;;  (dolist (elt '(("^-apple-hiragino.*" . 1.2)
-;;				 (".*osaka-bold.*" . 1.2)
-;;				 (".*osaka-medium.*" . 1.2)
-;;				 (".*courier-bold-.*-mac-roman" . 1.0)
-;;				 (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
-;;				 (".*monaco-bold-.*-mac-roman" . 0.9)))
-	(add-to-list 'face-font-rescale-alist elt))
-  ;; デフォルトフェイスにフォントセットを設定
-  ;; (これは起動時に default-frame-alist に従ったフレームが作成されない現象への対処)
-  (set-face-font 'default "fontset-myfonts")
-  )
+ ;; 英語
+ (set-face-attribute 'default nil
+             :family "Menlo" ;; font
+             :height 110)    ;; font size
 
-(when (>= emacs-major-version 23)
-  (create-fontset-from-ascii-font "Menlo-10:weight=normal:slant=normal" nil "menlokakugo")
-  (set-fontset-font "fontset-menlokakugo"
-					'unicode
-					(font-spec :family "Hiragino Maru Gothic ProN" :size 11)
-					nil
-					'append)
-  (setq my-font "fontset-menlokakugo"))
+;; 日本語
+(set-fontset-font
+ nil 'japanese-jisx0208
+;; (font-spec :family "Hiragino Mincho Pro")) ;; font
+  (font-spec :family "Hiragino Kaku Gothic ProN")) ;; font
 
-(when (= emacs-major-version 23)
-  (setq my-font "-*-*-medium-r-normal--10-*-*-*-*-*-fontset-hirakaku_w3"))
+;; 半角と全角の比を1:2にしたければ
+(setq face-font-rescale-alist
+;;        '((".*Hiragino_Mincho_pro.*" . 1.2)))
+      '((".*Hiragino_Kaku_Gothic_ProN.*" . 1.3)));; Mac用フォント設定
