@@ -18,7 +18,6 @@
                  (setq-default indent-tabs-mode t)))
              (c-set-offset 'arglist-intro 'ywb-php-lineup-arglist-intro)
              (c-set-offset 'arglist-close 'ywb-php-lineup-arglist-close)
-             (define-key c-mode-base-map "\C-ca" 'align-current)
              (setq tab-width 4
                    c-basic-offset 4
                    c-hanging-comment-ender-p nil
