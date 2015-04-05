@@ -23,7 +23,7 @@
 
 - 01font.el
 
-http://d.hatena.ne.jp/setoryohei/20110117/1295336454
+http://minus9d.hatenablog.com/entry/20131103/1383475472
 
 - 50projectile.el
 
