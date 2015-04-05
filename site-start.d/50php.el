@@ -2,20 +2,16 @@
 
 (add-hook 'php-mode-hook
           '(lambda ()
-             (require 'php-align)
-             (php-align-setup)
+             ;;n(require 'php-align)
+             ;;(php-align-setup)
              (defun ywb-php-lineup-arglist-intro (langelem)
                (save-excursion
-                 (setq-default indent-tabs-mode nil)
                  (goto-char (cdr langelem))
-                 (vector (+ (current-column) c-basic-offset))
-                 (setq-default indent-tabs-mode t)))
+                 (vector (+ (current-column) c-basic-offset))))
              (defun ywb-php-lineup-arglist-close (langelem)
                (save-excursion
-                 (setq-default indent-tabs-mode nil)
                  (goto-char (cdr langelem))
-                 (vector (current-column))
-                 (setq-default indent-tabs-mode t)))
+                 (vector (current-column))))
              (c-set-offset 'arglist-intro 'ywb-php-lineup-arglist-intro)
              (c-set-offset 'arglist-close 'ywb-php-lineup-arglist-close)
              (setq tab-width 4
