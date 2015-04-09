@@ -13,7 +13,10 @@
                  (goto-char (cdr langelem))
                  (vector (current-column))))
              (c-set-offset 'arglist-intro 'ywb-php-lineup-arglist-intro)
+             (c-set-offset 'arglist-cont 'ywb-php-lineup-arglist-intro)
+             (c-set-offset 'arglist-cont-nonempty 'ywb-php-lineup-arglist-intro)
              (c-set-offset 'arglist-close 'ywb-php-lineup-arglist-close)
+             (c-set-offset 'inher-intro 'ywb-php-lineup-arglist-close)
              (setq tab-width 4
                    c-basic-offset 4
                    c-hanging-comment-ender-p nil

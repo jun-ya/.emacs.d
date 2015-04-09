@@ -29,7 +29,7 @@
 (column-number-mode 1)
 
 ;; ツールバー非表示
-(tool-bar-mode nil)
+(tool-bar-mode 0)
 
 ;; bellを消す
 (setq visible-bell nil)
@@ -51,4 +51,10 @@
 (define-key ctl-x-map "\C-b" 'buffer-menu)
 
 ;; 書き換えられたら読みなおす
-(auto-revert-mode)
+(global-auto-revert-mode 1)
+
+;; yes or noをy or n
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; スクロールバー非表示
+(set-scroll-bar-mode nil)
