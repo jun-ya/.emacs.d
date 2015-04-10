@@ -39,3 +39,8 @@
 (setq time-stamp-format "%3a %3b %02d %02H:%02M:%02S %:y %u")
 (setq time-stamp-end ">")
 (setq time-stamp-line-limit 12) ;; 変ていいのかな? time-stamp.elには変えるなと書いてある
+
+;; マウスによるスクロール量
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 2))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
