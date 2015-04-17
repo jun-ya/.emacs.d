@@ -58,3 +58,10 @@
 
 ;; スクロールバー非表示
 (set-scroll-bar-mode nil)
+
+;; diredの設定
+;; オリジナル: http://keens.github.io/blog/2013/10/04/emacs-dired/
+(setq dired-listing-switches (purecopy "-Fahl"))
+(setq dired-dwim-target t)
+(add-hook 'dired-load-hook (lambda ()
+                  (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)))
