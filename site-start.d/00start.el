@@ -65,3 +65,7 @@
 (setq dired-dwim-target t)
 (add-hook 'dired-load-hook (lambda ()
                   (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)))
+
+;; grepの設定
+(require 'grep)
+(grep-apply-setting 'grep-command "grep -r -nH -e *")
