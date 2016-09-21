@@ -7,7 +7,7 @@
 (define-key global-map "\C-ca" 'my-align-to-equals)
 
 ;; minibuffer 内は英数モードにする
-(add-hook 'minibuffer-setup-hook 'mac-change-language-to-us)
+;;(add-hook 'minibuffer-setup-hook 'mac-change-language-to-us)
 
 ;; 個人向けなdefun
 (defun my-concat-time-stamp ()
