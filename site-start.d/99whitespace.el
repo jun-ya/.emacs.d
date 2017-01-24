@@ -8,11 +8,13 @@
                          spaces         ; スペース
                          ; empty          ; 先頭/末尾の空行
                          space-mark     ; 表示のマッピング
-                         tab-mark
+                         ; tab-mark       ; タブ文字
                          ))
 
+;; 空白文字の表示ルール
+;;  半角空白を不可視にしているのであまりいじらないほうが良さそう
 (setq whitespace-display-mappings
-      '((space-mark ?\u3000 [?\u25a1])
+      '((space-mark ?\u3000 [?\uff3f])
         ;; WARNING: the mapping below has a problem.
         ;; When a TAB occupies exactly one column, it will display the
         ;; character ?\xBB at that column followed by a TAB which goes to
@@ -40,7 +42,7 @@
                     :underline t)
 (set-face-attribute 'whitespace-space nil
                     :background my/bg-color
-                    :foreground "GreenYellow"
+                    :foreground "#476097"
                     :weight 'bold)
 (set-face-attribute 'whitespace-empty nil
                     :background my/bg-color)
