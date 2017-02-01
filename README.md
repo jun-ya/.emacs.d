@@ -6,8 +6,8 @@
 `M-x package-list-packages`からインストールしたパッケージ。依存関係で他にもたっぷりインストールされます。
 
 - bs-ext
-- helm
-- helm-projectile
+- ido-ubiquitous
+- ido-vertical-mode
 - js2-mode
 - json-mode
 - magit
