@@ -69,3 +69,7 @@
 ;; grepの設定
 (require 'grep)
 (grep-apply-setting 'grep-command "grep -r -nH -e *")
+
+;; 水平分割を禁止する
+(setq split-height-threshold 0)
+(setq split-width-threshold nil)
