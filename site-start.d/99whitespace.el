@@ -31,13 +31,14 @@
 (global-whitespace-mode 1)
 
 ;; zenburn-theme background: #3f3f3f
+(defvar my/zenburn-bg-color "#3f3f3f")
 (defvar my/bg-color "#464646")
 (set-face-attribute 'whitespace-trailing nil
                     :background my/bg-color
                     :foreground "#8f8f8f"
                     :underline t)
 (set-face-attribute 'whitespace-tab nil
-                    :background my/bg-color
+                    :background my/zenburn-bg-color
                     :foreground "#476097"
                     :underline t)
 (set-face-attribute 'whitespace-space nil
