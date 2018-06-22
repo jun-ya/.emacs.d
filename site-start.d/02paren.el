@@ -5,8 +5,8 @@
 ;; ハイライトするまでの遅延時間
 (setq show-paren-delay 0) ;; default: 0.125
 ;; show-paren-mode (括弧対応の強調)の背景色
-(set-face-background 'show-paren-match-face "Moccasin")
-(set-face-background 'show-paren-mismatch-face  "tomato")
+;;(set-face-background 'show-paren-match-face "Moccasin")
+;;(set-face-background 'show-paren-mismatch-face  "tomato")
 (defun match-paren (arg)
   "Go to the matching parenthesis if on parenthesis otherwise insert %."
   (interactive "p")
