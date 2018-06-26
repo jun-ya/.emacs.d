@@ -1,15 +1,16 @@
 ;; Mac用フォント設定
-;; http://blog.livedoor.jp/tek_nishi/archives/8590439.html
-(set-face-attribute 'default nil :family "Menlo" :height 140)
-(set-fontset-font (frame-parameter nil 'font)
-                  'japanese-jisx0208
-                  (font-spec :family "Hiragino Kaku Gothic ProN"))
-(add-to-list 'face-font-rescale-alist
-             '(".*Hiragino Kaku Gothic ProN.*" . 1.2))
+;; Ricty Diminishedを使う版
+;;https://qiita.com/melito/items/238bdf72237290bc6e42
 
-
-
-
-
-
-
+(let* ((size 14)
+       (asciifont "Ricty Diminished")
+       (jpfont "Ricty Diminished")
+       (h (* size 10))
+       (fontspec (font-spec :family asciifont))
+       (jp-fontspec (font-spec :family jpfont)))
+  (set-face-attribute 'default nil :family asciifont :height h)
+  (set-fontset-font nil 'japanese-jisx0213.2004-1 jp-fontspec)
+  (set-fontset-font nil 'japanese-jisx0213-2 jp-fontspec)
+  (set-fontset-font nil 'katakana-jisx0201 jp-fontspec)
+  (set-fontset-font nil '(#x0080 . #x024F) fontspec) 
+  (set-fontset-font nil '(#x0370 . #x03FF) fontspec))
